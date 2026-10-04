@@ -1,0 +1,7 @@
+design/node_modules/
+design/.cache/
+*.log
+build/
+.cache/
+CMakeUserPresets.json
+.DS_Store

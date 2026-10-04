@@ -1,0 +1,19 @@
+{
+  "name": "vninput-design",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "atlas:serve": "tsx src/server.tsx",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ketvietlab/design-system": "0.1.29",
+    "@ketvietlab/ketjs": "0.1.29",
+    "@ketvietlab/ketjs-view": "0.1.29"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-30",
+  "revision": "1e7ff091422d3a36a7644b28f8ae5fd35b9e2cba2e8e7af4a73683ecab1ee4aa",
+  "environment": "Chromium 154 via KetPlus, macOS host; KetAtlas 0.5.2; KetJS 0.1.29",
+  "viewport": {
+    "screens": "640x480",
+    "menu": "272x302",
+    "viewer": "1280x900"
+  },
+  "http": {
+    "screenRoutes": 22,
+    "assets": 5,
+    "ready": true
+  },
+  "checks": [
+    "Embedded preview: change Telex to VNI and save",
+    "Shortcut conflict recovery; capture Alt+X and save",
+    "Typing: enter original 13-character sample -> 13 characters, clear -> 0, sample -> 53",
+    "Restore: cancel preserves VNI; confirm restores Telex",
+    "macOS, Windows and Linux fixture: activation confirmation and navigation to typing",
+    "Menu: English/Vietnamese and VNI selection",
+    "All six screen types visually inspected at target viewport",
+    "Viewer canvas and interactive preview: Light -> Dark -> Light, input suffix X preserved (54 characters)",
+    "Disable theme sync: screen restores light while viewer remains dark and text persists"
+  ],
+  "limitations": [
+    "Mockup only: no C++/Qt IME backend",
+    "Browser connector exposes no console log API; no blanket console-error assertion",
+    "Global shortcuts and OS activation are deterministic fixtures, not native OS operations"
+  ],
+  "logo": {
+    "file": "public/brand/vninput-logo.png",
+    "width": 1254,
+    "height": 1254,
+    "alpha": true,
+    "tool": "built-in image_gen"
+  }
+}

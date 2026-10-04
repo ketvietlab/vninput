@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-30",
+  "tool": "KetPlus browser.v0 visual_compare",
+  "scope": "Raster fidelity of seven native Qt Widgets captures against unchanged KetAtlas browser mockup captures. Image wrapper semantics do not test native widget accessibility.",
+  "platform": "macOS arm64",
+  "qtVersion": "6.11.1",
+  "qtPlatformPlugin": "offscreen",
+  "theme": "light",
+  "deviceScaleFactor": 1,
+  "browser": "Chrome 154.0.8037.92",
+  "viewport": {
+    "settings": [
+      640,
+      480
+    ],
+    "quickMenu": [
+      272,
+      302
+    ]
+  },
+  "policy": {
+    "maxPixelMismatchRatio": 0.03,
+    "pixelThreshold": 0.1,
+    "ignoredRegions": [],
+    "rasterRegions": null
+  },
+  "results": [
+    {
+      "screen": "settings",
+      "status": "passed",
+      "mismatchPercent": 1.8011,
+      "differentPixels": 5533,
+      "comparedPixels": 307200,
+      "reference": "reference/settings.png",
+      "candidate": "candidate/settings.png",
+      "diff": "diff/settings.png",
+      "referenceSha256": "ebcdd0a763a5073a8b4410080860ed9ff0f6c8e6e22c1eaaa058760b393c4519",
+      "candidateSha256": "e2d756078913de09869fb1093c48953d53c598a5e001d942429e6022cc91750d",
+      "diffSha256": "cf4c7eb2edb51243d6fdace6096da99bb95f89a5de47d4c17d9116d2d027dae1"
+    },
+    {
+      "screen": "shortcuts",
+      "status": "passed",
+      "mismatchPercent": 1.6963,
+      "differentPixels": 5211,
+      "comparedPixels": 307200,
+      "reference": "reference/shortcuts.png",
+      "candidate": "candidate/shortcuts.png",
+      "diff": "diff/shortcuts.png",
+      "referenceSha256": "f490f1dadbfbf1d470bb3e9b823b1f59fd2b5b0b2c51cbddce551480d34a692c",
+      "candidateSha256": "e1d2a74322317439f3b61cd439960ef2538ee247a238efa09480b63ab7a03ce8",
+      "diffSha256": "fcf5ad031b3df69d621d3d352462d557f27887522a91ab0bebc2efe282343a21"
+    },
+    {
+      "screen": "playground",
+      "status": "passed",
+      "mismatchPercent": 1.9411,
+      "differentPixels": 5963,
+      "comparedPixels": 307200,
+      "reference": "reference/playground.png",
+      "candidate": "candidate/playground.png",
+      "diff": "diff/playground.png",
+      "referenceSha256": "a1ac49b1d67eca277b9f1281120370037473b30a7da884711e132a5f5cb40116",
+      "candidateSha256": "5e744a5418f5b62c48d9365ecdc11b08a2ad0f1ebcacb386237c8982d48f9049",
+      "diffSha256": "afee883a28bcc226995a95f4eddbd65a77f7e1bfeacca1c457445b55ee5b23c4"
+    },
+    {
+      "screen": "integration",
+      "status": "passed",
+      "mismatchPercent": 2.2422,
+      "differentPixels": 6888,
+      "comparedPixels": 307200,
+      "reference": "reference/integration.png",
+      "candidate": "candidate/integration.png",
+      "diff": "diff/integration.png",
+      "referenceSha256": "1ca5d3382c09d2665c8de8e5c5e775331d04c3f0726a596d1984bd10e6213b58",
+      "candidateSha256": "8461fffef047233c25b1f4aaba45a6d1b880020100552301fdb9ed03d0c323b0",
+      "diffSha256": "88a60c58d69ddce2203c18a53e43bc4937f400c49be1d7f909d53029cf71d6c8"
+    },
+    {
+      "screen": "about",
+      "status": "passed",
+      "mismatchPercent": 1.6641,
+      "differentPixels": 5112,
+      "comparedPixels": 307200,
+      "reference": "reference/about.png",
+      "candidate": "candidate/about.png",
+      "diff": "diff/about.png",
+      "referenceSha256": "fedd7edc0d1fd87a051dfbe32b1acce84fab88fcef3f951ea83bee2417955695",
+      "candidateSha256": "a53f28b9f4620999a611a5614e0cd470b0cc915343abb2cbb3ff4bf0096ff685",
+      "diffSha256": "61c7c2dba0c82be06ed5e439577622d57016faca1d542840911d026c0a97bed4"
+    },
+    {
+      "screen": "restore",
+      "status": "passed",
+      "mismatchPercent": 1.0934,
+      "differentPixels": 3359,
+      "comparedPixels": 307200,
+      "reference": "reference/restore.png",
+      "candidate": "candidate/restore.png",
+      "diff": "diff/restore.png",
+      "referenceSha256": "8f7ef9d36e3af64b79d22d8a80d93ca26404b11223fbba402e6da49a8c8d1f15",
+      "candidateSha256": "b2d3cc3cbd9ea60a53845d4fd93681afa04b845ffc24057fee3534de8ecaf1b2",
+      "diffSha256": "98463130bcd0fd1836aa929f6ef83b609e1597bea35a2d476bc7714fb70758a9"
+    },
+    {
+      "screen": "quick-menu",
+      "status": "passed",
+      "mismatchPercent": 1.4389,
+      "differentPixels": 1182,
+      "comparedPixels": 82144,
+      "reference": "reference/quick-menu.png",
+      "candidate": "candidate/quick-menu.png",
+      "diff": "diff/quick-menu.png",
+      "referenceSha256": "3d6f123930827c2db86a908d6b45d05b49a39c62bd885a6d0e2f60550b76f564",
+      "candidateSha256": "86b808011de365a524103439f6489847b66254bc1267fdf7357e2305d6373d50",
+      "diffSha256": "c0f48c002a90635a800a2ce953c70fe1a356149d1fc88f4f195714ddfa95e6fb"
+    }
+  ],
+  "limitations": [
+    "Windows and Linux are scaffolded but were not built or visually measured on this host.",
+    "Dark theme and alternate OS/font/scale combinations have not been measured.",
+    "Engine composition, native IME registration and global hotkeys are not implemented; integration-ready/conflict fixtures are not claimed as working features."
+  ]
+}

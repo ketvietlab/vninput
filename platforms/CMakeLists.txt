@@ -1,0 +1,20 @@
+if(APPLE)
+    set(vninput_platform_source macos/backend.cpp)
+elseif(WIN32)
+    set(vninput_platform_source windows/backend.cpp)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(vninput_platform_source linux/backend.cpp)
+else()
+    message(FATAL_ERROR "VNInput targets macOS, Windows and Linux only")
+endif()
+
+# Metadata/contract today. Actual IME binaries will be separate native targets.
+add_library(vninput_platform STATIC ${vninput_platform_source})
+add_library(VNInput::Platform ALIAS vninput_platform)
+target_include_directories(vninput_platform PUBLIC include)
+target_link_libraries(vninput_platform PRIVATE vninput_warnings)
+
+if(APPLE AND VNINPUT_BUILD_MACOS_IME)
+    add_subdirectory(macos)
+    target_compile_definitions(vninput_platform PRIVATE VNINPUT_HAS_MACOS_IME=1)
+endif()

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleExecutable</key><string>VNInput</string>
+  <key>CFBundleIdentifier</key><string>vn.vninput.inputmethod.VNInput</string>
+  <key>CFBundleName</key><string>VNInput</string>
+  <key>CFBundleDisplayName</key><string>VNInput</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+  <key>CFBundleVersion</key><string>@PROJECT_VERSION@</string>
+  <key>CFBundleShortVersionString</key><string>@PROJECT_VERSION@</string>
+  <key>CFBundleIconFile</key><string>vninput-logo.png</string>
+  <key>LSMinimumSystemVersion</key><string>@CMAKE_OSX_DEPLOYMENT_TARGET@</string>
+  <key>LSBackgroundOnly</key><true/>
+  <key>NSPrincipalClass</key><string>NSApplication</string>
+  <key>InputMethodConnectionName</key><string>VNInput_InputMethod_Connection</string>
+  <key>InputMethodServerControllerClass</key><string>VNInputInputController</string>
+  <key>TISInputSourceID</key><string>vn.vninput.inputmethod.VNInput</string>
+  <key>TISIntendedLanguage</key><string>vi</string>
+  <key>TISIconLabels</key><dict><key>Primary</key><string>V</string></dict>
+  <key>tsInputMethodCharacterRepertoireKey</key><array><string>vi</string></array>
+  <!-- The Input menu uses the image's logical size; the large app logo makes
+       its menu row taller than the screen. Keep this asset at 16 x 16 points. -->
+  <key>TISIconIsTemplate</key><true/>
+  <key>tsInputMethodIconFileKey</key><string>vninput-input-source.pdf</string>
+</dict></plist>

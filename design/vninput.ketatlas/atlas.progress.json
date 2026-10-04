@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "screens": {
+    "settings": {
+      "status": "planned",
+      "summary": "Đã có mockup compact. Chưa triển khai sản phẩm Qt/C++ native.",
+      "checks": [
+        {
+          "id": "native-implementation",
+          "title": "Kiểu gõ, quy tắc dấu, lưu và khôi phục cấu hình.",
+          "done": false
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mock-reference",
+          "kind": "reference",
+          "title": "Mockup và phạm vi thiết kế",
+          "url": "./README.md"
+        }
+      ],
+      "updatedAt": "2026-09-30T09:16:07.343Z"
+    },
+    "shortcuts": {
+      "status": "planned",
+      "summary": "Đã có mockup compact. Chưa triển khai sản phẩm Qt/C++ native.",
+      "checks": [
+        {
+          "id": "native-implementation",
+          "title": "Ghi phím chuyển, kiểm tra xung đột và lưu cấu hình.",
+          "done": false
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mock-reference",
+          "kind": "reference",
+          "title": "Mockup và phạm vi thiết kế",
+          "url": "./README.md"
+        }
+      ],
+      "updatedAt": "2026-09-30T09:16:09.071Z"
+    },
+    "playground": {
+      "status": "planned",
+      "summary": "Đã có mockup compact. Chưa triển khai sản phẩm Qt/C++ native.",
+      "checks": [
+        {
+          "id": "native-implementation",
+          "title": "Ô gõ thử nhận engine C++ thật, đếm ký tự và xoá.",
+          "done": false
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mock-reference",
+          "kind": "reference",
+          "title": "Mockup và phạm vi thiết kế",
+          "url": "./README.md"
+        }
+      ],
+      "updatedAt": "2026-09-30T09:16:10.664Z"
+    },
+    "integration": {
+      "status": "planned",
+      "summary": "Đã có mockup compact. Chưa triển khai sản phẩm Qt/C++ native.",
+      "checks": [
+        {
+          "id": "native-implementation",
+          "title": "Tích hợp và kiểm tra trạng thái IME trên ba OS.",
+          "done": false
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mock-reference",
+          "kind": "reference",
+          "title": "Mockup và phạm vi thiết kế",
+          "url": "./README.md"
+        }
+      ],
+      "updatedAt": "2026-09-30T09:16:12.170Z"
+    },
+    "about": {
+      "status": "planned",
+      "summary": "Đã có mockup compact. Chưa triển khai sản phẩm Qt/C++ native.",
+      "checks": [
+        {
+          "id": "native-implementation",
+          "title": "Thông tin phiên bản thực tế và quyền riêng tư.",
+          "done": false
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mock-reference",
+          "kind": "reference",
+          "title": "Mockup và phạm vi thiết kế",
+          "url": "./README.md"
+        }
+      ],
+      "updatedAt": "2026-09-30T09:16:13.764Z"
+    },
+    "quick-menu": {
+      "status": "planned",
+      "summary": "Đã có mockup compact. Chưa triển khai sản phẩm Qt/C++ native.",
+      "checks": [
+        {
+          "id": "native-implementation",
+          "title": "Menu native Việt/Anh và Telex/VNI.",
+          "done": false
+        }
+      ],
+      "evidence": [
+        {
+          "id": "mock-reference",
+          "kind": "reference",
+          "title": "Mockup và phạm vi thiết kế",
+          "url": "./README.md"
+        }
+      ],
+      "updatedAt": "2026-09-30T09:16:15.432Z"
+    }
+  }
+}

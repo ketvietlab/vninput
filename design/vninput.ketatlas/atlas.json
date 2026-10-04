@@ -1,0 +1,445 @@
+{
+  "$schema": "./ketatlas.schema.json",
+  "version": 1,
+  "title": "VNInput · Gõ tự nhiên, viết tiếng mình",
+  "viewport": {
+    "width": 640,
+    "height": 480
+  },
+  "screens": [
+    {
+      "id": "settings",
+      "title": "Bộ gõ",
+      "url": "settings"
+    },
+    {
+      "id": "shortcuts",
+      "title": "Phím tắt",
+      "url": "shortcuts"
+    },
+    {
+      "id": "playground",
+      "title": "Gõ thử",
+      "url": "playground"
+    },
+    {
+      "id": "integration",
+      "title": "Tích hợp hệ thống",
+      "url": "integration"
+    },
+    {
+      "id": "about",
+      "title": "Về VNInput",
+      "url": "about"
+    },
+    {
+      "id": "quick-menu",
+      "title": "Menu V/E",
+      "url": "quick-menu",
+      "viewport": {
+        "width": 272,
+        "height": 302
+      }
+    }
+  ],
+  "flows": [
+    {
+      "id": "preferences",
+      "title": "Chọn kiểu gõ",
+      "group": "VNInput · Desktop",
+      "description": "Chọn kiểu gõ, vị trí dấu, lưu thiết lập và khôi phục có xác nhận.",
+      "start": "choose",
+      "ends": [
+        "try",
+        "restored"
+      ],
+      "nodes": [
+        {
+          "id": "choose",
+          "screen": "settings",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "saved",
+          "screen": "settings",
+          "column": 1,
+          "row": 0,
+          "url": "settings?method=vni&saved=1&free-tone=1&restore-word=1",
+          "title": "Đã lưu VNI"
+        },
+        {
+          "id": "try",
+          "screen": "playground",
+          "column": 2,
+          "row": 0,
+          "url": "playground?method=vni"
+        },
+        {
+          "id": "confirm",
+          "screen": "settings",
+          "column": 1,
+          "row": 1,
+          "url": "settings?state=restore&method=vni",
+          "title": "Xác nhận khôi phục"
+        },
+        {
+          "id": "restored",
+          "screen": "settings",
+          "column": 2,
+          "row": 1,
+          "url": "settings?state=restored",
+          "title": "Đã khôi phục Telex"
+        }
+      ],
+      "edges": [
+        {
+          "from": "choose",
+          "to": "saved",
+          "label": "Chọn VNI → Lưu thay đổi",
+          "kind": "primary"
+        },
+        {
+          "from": "saved",
+          "to": "try",
+          "label": "Mở Gõ thử",
+          "kind": "primary"
+        },
+        {
+          "from": "saved",
+          "to": "confirm",
+          "label": "Khôi phục mặc định",
+          "kind": "conditional"
+        },
+        {
+          "from": "confirm",
+          "to": "restored",
+          "label": "Xác nhận khôi phục",
+          "kind": "recovery"
+        },
+        {
+          "from": "confirm",
+          "to": "saved",
+          "label": "Giữ thiết lập hiện tại",
+          "kind": "recovery"
+        }
+      ]
+    },
+    {
+      "id": "hotkeys",
+      "title": "Đổi phím chuyển",
+      "group": "VNInput · Desktop",
+      "description": "Ghi tổ hợp bàn phím, báo xung đột và chọn tổ hợp khác.",
+      "start": "current",
+      "ends": [
+        "saved"
+      ],
+      "nodes": [
+        {
+          "id": "current",
+          "screen": "shortcuts",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "conflict",
+          "screen": "shortcuts",
+          "column": 1,
+          "row": 1,
+          "url": "shortcuts?state=conflict&shortcut=Ctrl+%2B+Space",
+          "title": "Phím tắt trùng hệ thống"
+        },
+        {
+          "id": "saved",
+          "screen": "shortcuts",
+          "column": 2,
+          "row": 0,
+          "url": "shortcuts?saved=1&shortcut=Ctrl+%2B+Shift+%2B+V",
+          "title": "Phím tắt mới đã lưu"
+        }
+      ],
+      "edges": [
+        {
+          "from": "current",
+          "to": "saved",
+          "label": "Ghi tổ hợp mới → Lưu",
+          "kind": "primary"
+        },
+        {
+          "from": "current",
+          "to": "conflict",
+          "label": "Chọn Ctrl + Space",
+          "kind": "conditional"
+        },
+        {
+          "from": "conflict",
+          "to": "saved",
+          "label": "Chọn Ctrl + Shift + V → Lưu",
+          "kind": "recovery"
+        }
+      ]
+    },
+    {
+      "id": "activate",
+      "title": "Kích hoạt trên từng hệ điều hành",
+      "group": "VNInput · Desktop",
+      "description": "Các thao tác cài đặt diễn ra ngoài VNInput. Mockup chỉ mô phỏng xác nhận của người dùng.",
+      "start": "platform",
+      "ends": [
+        "trial"
+      ],
+      "nodes": [
+        {
+          "id": "platform",
+          "type": "note",
+          "title": "Chọn hệ điều hành",
+          "description": "Bản phát hành hiển thị hướng dẫn của hệ điều hành đang sử dụng. Ba nhánh là ba fixture để review.",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "mac",
+          "screen": "integration",
+          "column": 1,
+          "row": 0,
+          "url": "integration?platform=macos",
+          "title": "macOS · Chưa kích hoạt"
+        },
+        {
+          "id": "mac-ready",
+          "screen": "integration",
+          "column": 2,
+          "row": 0,
+          "url": "integration?platform=macos&state=ready",
+          "title": "macOS · Sẵn sàng"
+        },
+        {
+          "id": "win",
+          "screen": "integration",
+          "column": 1,
+          "row": 1,
+          "url": "integration?platform=windows",
+          "title": "Windows · Chưa kích hoạt"
+        },
+        {
+          "id": "win-ready",
+          "screen": "integration",
+          "column": 2,
+          "row": 1,
+          "url": "integration?platform=windows&state=ready",
+          "title": "Windows · Sẵn sàng"
+        },
+        {
+          "id": "linux",
+          "screen": "integration",
+          "column": 1,
+          "row": 2,
+          "url": "integration?platform=linux",
+          "title": "Linux · Chưa kích hoạt"
+        },
+        {
+          "id": "linux-ready",
+          "screen": "integration",
+          "column": 2,
+          "row": 2,
+          "url": "integration?platform=linux&state=ready",
+          "title": "Linux · Sẵn sàng"
+        },
+        {
+          "id": "trial",
+          "screen": "playground",
+          "column": 3,
+          "row": 1
+        }
+      ],
+      "edges": [
+        {
+          "from": "platform",
+          "to": "mac",
+          "label": "macOS",
+          "kind": "conditional"
+        },
+        {
+          "from": "platform",
+          "to": "win",
+          "label": "Windows",
+          "kind": "conditional"
+        },
+        {
+          "from": "platform",
+          "to": "linux",
+          "label": "Linux",
+          "kind": "conditional"
+        },
+        {
+          "from": "mac",
+          "to": "mac-ready",
+          "label": "Thêm nguồn nhập → Tôi đã chọn VNInput",
+          "kind": "primary"
+        },
+        {
+          "from": "win",
+          "to": "win-ready",
+          "label": "Thêm bàn phím → Tôi đã chọn VNInput",
+          "kind": "primary"
+        },
+        {
+          "from": "linux",
+          "to": "linux-ready",
+          "label": "Thêm trong Fcitx 5 → Tôi đã chọn VNInput",
+          "kind": "primary"
+        },
+        {
+          "from": "mac-ready",
+          "to": "trial",
+          "label": "Bắt đầu gõ thử",
+          "kind": "primary"
+        },
+        {
+          "from": "win-ready",
+          "to": "trial",
+          "label": "Bắt đầu gõ thử",
+          "kind": "primary"
+        },
+        {
+          "from": "linux-ready",
+          "to": "trial",
+          "label": "Bắt đầu gõ thử",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "quick-switch",
+      "title": "Menu V/E",
+      "group": "VNInput · Desktop",
+      "description": "Menu nhỏ dùng chung về nội dung; hình thức native sẽ được điều chỉnh theo OS.",
+      "start": "vietnamese",
+      "ends": [
+        "about"
+      ],
+      "nodes": [
+        {
+          "id": "vietnamese",
+          "screen": "quick-menu",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "english",
+          "screen": "quick-menu",
+          "column": 1,
+          "row": 0,
+          "url": "quick-menu?enabled=0",
+          "title": "Gõ tiếng Anh"
+        },
+        {
+          "id": "vni",
+          "screen": "quick-menu",
+          "column": 2,
+          "row": 0,
+          "url": "quick-menu?method=vni",
+          "title": "Chuyển kiểu gõ VNI"
+        },
+        {
+          "id": "settings",
+          "screen": "settings",
+          "column": 3,
+          "row": 0,
+          "url": "settings?method=vni"
+        },
+        {
+          "id": "about",
+          "screen": "about",
+          "column": 4,
+          "row": 0
+        }
+      ],
+      "edges": [
+        {
+          "from": "vietnamese",
+          "to": "english",
+          "label": "Chọn Tiếng Anh",
+          "kind": "primary"
+        },
+        {
+          "from": "english",
+          "to": "vni",
+          "label": "Chọn Tiếng Việt và VNI",
+          "kind": "primary"
+        },
+        {
+          "from": "vni",
+          "to": "settings",
+          "label": "Thiết lập VNInput…",
+          "kind": "primary"
+        },
+        {
+          "from": "settings",
+          "to": "about",
+          "label": "Về VNInput",
+          "kind": "primary"
+        },
+        {
+          "from": "english",
+          "to": "vietnamese",
+          "label": "Chọn Tiếng Việt",
+          "kind": "recovery"
+        }
+      ]
+    },
+    {
+      "id": "typing",
+      "title": "Thử nội dung",
+      "group": "VNInput · Desktop",
+      "description": "Ô nhập, đếm ký tự và bảng gợi nhớ Telex/VNI. Không triển khai engine chuyển dấu trong mockup.",
+      "start": "empty",
+      "ends": [
+        "cleared"
+      ],
+      "nodes": [
+        {
+          "id": "empty",
+          "screen": "playground",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "sample",
+          "screen": "playground",
+          "column": 1,
+          "row": 0,
+          "url": "playground?state=sample",
+          "title": "Đã điền câu mẫu"
+        },
+        {
+          "id": "cleared",
+          "screen": "playground",
+          "column": 2,
+          "row": 0,
+          "title": "Đã xoá nội dung"
+        }
+      ],
+      "edges": [
+        {
+          "from": "empty",
+          "to": "sample",
+          "label": "Điền câu mẫu hoặc nhập nội dung",
+          "kind": "primary"
+        },
+        {
+          "from": "sample",
+          "to": "cleared",
+          "label": "Xoá nội dung",
+          "kind": "primary"
+        },
+        {
+          "from": "cleared",
+          "to": "sample",
+          "label": "Điền câu mẫu",
+          "kind": "recovery"
+        }
+      ]
+    }
+  ]
+}

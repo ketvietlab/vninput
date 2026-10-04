@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-30",
+  "change": "User-requested correction: display native macOS Option/Command labels in Qt and KetAtlas.",
+  "scope": "Raster comparison of three changed surfaces at light/DPR 1; image wrappers do not validate native accessibility.",
+  "environment": {
+    "platform": "macOS arm64",
+    "qt": "6.11.1",
+    "qtPlatform": "offscreen",
+    "browser": "Chrome 154.0.8037.92"
+  },
+  "policy": {
+    "maxPixelMismatchRatio": 0.03,
+    "pixelThreshold": 0.1,
+    "ignoredRegions": [],
+    "rasterRegions": null
+  },
+  "results": [
+    {
+      "screen": "shortcuts",
+      "status": "passed",
+      "mismatchPercent": 1.6826,
+      "differentPixels": 5169,
+      "comparedPixels": 307200,
+      "reference": "reference/shortcuts.png",
+      "candidate": "candidate/shortcuts.png",
+      "diff": "diff/shortcuts.png",
+      "referenceSha256": "ebb7598009635a2b211dc011dfdb959b46d204c8b9a1a5625a2477f96b1edcce",
+      "candidateSha256": "814ce425fc38fc9851161709578495b255061e3c8f204703bd5e8299ccade38d",
+      "diffSha256": "963fec8cfcfd7a29646d8ae2e4ccd6971adda3427606fee3b3eeadb0cfe2470d"
+    },
+    {
+      "screen": "restore",
+      "status": "passed",
+      "mismatchPercent": 1.0706,
+      "differentPixels": 3289,
+      "comparedPixels": 307200,
+      "reference": "reference/restore.png",
+      "candidate": "candidate/restore.png",
+      "diff": "diff/restore.png",
+      "referenceSha256": "153e8af55fa9bc5dc00f347d57e2f7907e508989248ac8200880ed966a9ba848",
+      "candidateSha256": "810cdfa3130d58f62350ad229fd28a9ff94cecc85fb0bc24504b71c96ecf494a",
+      "diffSha256": "203c7bc0142eb6d667f4e80e765cee4fd04edea52ddec110632a7279c79e4e42"
+    },
+    {
+      "screen": "quick-menu",
+      "status": "passed",
+      "mismatchPercent": 1.4341,
+      "differentPixels": 1178,
+      "comparedPixels": 82144,
+      "reference": "reference/quick-menu.png",
+      "candidate": "candidate/quick-menu.png",
+      "diff": "diff/quick-menu.png",
+      "referenceSha256": "d55f666219c4f5b5613318dadea394d296d51cab10e2fc66a77fa7d48f446c0f",
+      "candidateSha256": "1fbfdfa2e76cbc9b9518aa93604b3503e030e7f8a9f76d922fea0121f833eccf",
+      "diffSha256": "f78e26f0cec9c08502d2c26529394d6aebd1b965c99b65c61c090bb3b17d5a22"
+    }
+  ],
+  "checks": {
+    "qt": "2/2 suites passed, including native display, portable persistence and menu regression.",
+    "web": "KetPlus: record Option+K, save and reload retains ⌥K; Windows/Linux fixtures retain Alt labels.",
+    "design": "Typecheck, validate and strict audit passed.",
+    "release": "Release rebuilt and installed into build/stage."
+  },
+  "baselineNote": "The earlier seven-screen report in ../qt/comparison.json remains historical. Baseline text was corrected at the user's explicit request."
+}

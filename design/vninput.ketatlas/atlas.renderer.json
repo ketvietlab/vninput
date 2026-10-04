@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/ketatlas@0.5.2/renderer.schema.json",
+  "version": 1,
+  "framework": "ketjs",
+  "command": ["node", "--import", "tsx", "src/server.tsx", "--host", "{host}", "--port", "{port}"],
+  "cwd": "..",
+  "readyPath": "/__atlas/ready",
+  "screenBasePath": "/__atlas/vninput/"
+}

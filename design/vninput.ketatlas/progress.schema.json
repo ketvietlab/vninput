@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KetAtlas screen progress",
+  "description": "Semantic validation also checks screen/node IDs, evidence references and verification requirements.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "screens": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": ["unassessed", "planned", "in_progress", "in_review", "implemented", "verified"]
+          },
+          "owner": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "blocker": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+                },
+                "title": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "done": {
+                  "type": "boolean"
+                },
+                "evidenceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  }
+                },
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "flowId": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+                      },
+                      "nodeId": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+                      }
+                    },
+                    "required": ["flowId", "nodeId"],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": ["id", "title", "done"],
+              "additionalProperties": false
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+                },
+                "kind": {
+                  "enum": ["pr", "test", "release", "reference"]
+                },
+                "title": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "revision": {
+                  "type": "string"
+                },
+                "environment": {
+                  "type": "string"
+                },
+                "observedAt": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              },
+              "required": ["id", "kind", "title", "url"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["status"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["version", "screens"],
+  "additionalProperties": false
+}
