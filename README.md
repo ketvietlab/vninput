@@ -152,3 +152,14 @@ Quy trình tái kiểm tra: [tests/visual/README.md](tests/visual/README.md).
 Qt Core/Gui/Widgets; Qt Test chỉ dùng khi bật `BUILD_TESTING`. Không dùng Qt Quick,
 QML hoặc Qt WebEngine. Token màu từ `@ketvietlab/design-system@0.1.29`; không nhúng
 runtime web của design system. [Thông tin bên thứ ba](THIRD_PARTY_NOTICES.md).
+
+## Giấy phép
+
+VNInput là mã nguồn mở theo [giấy phép MIT](LICENSE), Copyright (c) 2026 KETVIET JSC, Vietnam.
+Giấy phép áp dụng cho toàn bộ repo: lõi C++, adapter từng nền tảng, công cụ, tài liệu và mock trong `design/`.
+
+- Tên "VNInput" và logo là nhãn hiệu của KETVIET JSC. Giấy phép MIT không cấp quyền dùng nhãn hiệu: bản fork
+  phát hành lại phải đổi tên và logo, nhưng vẫn được ghi "dựa trên VNInput".
+- Qt được liên kết động theo giấy phép của bản Qt bạn cài (LGPL-3.0 hoặc thương mại). Ai phát hành binary kèm Qt
+  phải tuân thủ giấy phép đó.
+- Thành phần bên thứ ba: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

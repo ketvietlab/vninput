@@ -10,6 +10,8 @@
 - **VNInput logo** — generated asset, copied unchanged from
   `design/public/brand/vninput-logo.png` into `resources/branding/vninput-logo.png`.
   Prompt/provenance: [design/public/brand/README.md](design/public/brand/README.md).
+  The file is covered by the repository MIT License, but the VNInput name and logo
+  are trademarks of KETVIET JSC; the MIT License grants no trademark rights.
 - Fonts are resolved from the operating system. No Apple font files are included
   in this repository or distribution assets.
 

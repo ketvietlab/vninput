@@ -40,7 +40,7 @@ if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-install(FILES THIRD_PARTY_NOTICES.md
+install(FILES LICENSE THIRD_PARTY_NOTICES.md
     DESTINATION ${CMAKE_INSTALL_DATADIR}/vninput)
 install(FILES third_party/licenses/ket-design-system.txt
     DESTINATION ${CMAKE_INSTALL_DATADIR}/vninput/licenses)
