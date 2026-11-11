@@ -38,13 +38,13 @@ hữu đoạn đó và bắt đầu từ mới. Không dùng Backspace giả l�
 truy cập được tài liệu, adapter vẫn dùng `setMarkedText:` như trước; gạch chân
 có thể còn xuất hiện ở các editor ấy.
 
-KetPlus Terminal (`com.ketsuite.ketplus.terminal`) là một trường hợp cần chọn
-luồng marked ngay từ phím đầu tiên: `TerminalView` nhận preedit/commit để gửi
-đến PTY nhưng không hỗ trợ thay đoạn chữ đã gửi. Qt vẫn trả về vị trí con trỏ
-trông hợp lệ, nên chỉ kiểm tra `selectedRange` sẽ chọn nhầm luồng thay chữ và
-làm Telex/VNI mất ký tự đầu. Adapter dùng bundle ID của ứng dụng đang focus để
-chọn luồng marked cho KetPlus Terminal; việc này không thay đổi đường đi của
-các editor khác. Gạch chân có thể xuất hiện trong terminal khi đang gõ.
+Ngày 2026-11-11: KetPlus Terminal không còn ngoại lệ theo bundle ID. Từ bản có
+ketvietlab/ketplus#532, `TerminalView` báo phần chữ gõ từ lần cuối con trỏ shell
+di chuyển (mũi tên, Tab, Enter, click, dán) làm chữ trước con trỏ, và đổi một lần
+`insertText:replacementRange:` thành Backspace rồi chữ mới gửi xuống PTY. Vì vậy
+adapter dùng luồng thay chữ như với editor: zsh thấy từng chữ ngay khi gõ, gợi ý
+và Tab hoàn thành đúng. Bản KetPlus Terminal cũ hơn chưa thay được chữ đã gửi;
+hãy cập nhật terminal trước khi dùng bản VNInput này.
 
 Kiểm thử mock IMK bao gồm Telex/VNI, Backspace, Esc, selection, đổi client,
 đổi con trỏ, thay nội dung bên ngoài và fallback. Bài kiểm tra `vninput-qt-bridge`

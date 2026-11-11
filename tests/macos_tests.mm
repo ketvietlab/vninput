@@ -154,20 +154,20 @@ void sessions()
     equal(c.text, @"tiếng", "clients without document access use marked text");
     check(c.marked.location != NSNotFound, "fallback keeps composition");
     [session close];
+    // KetPlus Terminal reports the text typed since the shell cursor last moved and turns a
+    // replacement into backspaces, so it takes the same inline path as editors: zsh sees each
+    // letter as it is typed instead of a whole word at the boundary.
     c = [TestClient new];
-    [session activate:client(c) settings:Settings{}
-        applicationID:@"com.ketsuite.ketplus.terminal"];
-    type(session, c, @"dd "); equal(c.text, @"đ ", "terminal composes before sending text to PTY");
-    check(c.commits == 2, "terminal sends one committed word and forwarded space");
-    check(c.marked.location == NSNotFound, "terminal preedit ends at word boundary");
+    [session activate:client(c) settings:Settings{}];
+    type(session, c, @"dd "); equal(c.text, @"đ ", "terminal rewrites the word in place");
+    check(c.marked.location == NSNotFound, "terminal word is never marked");
     [session close];
     c = [TestClient new];
     Settings terminalVni; terminalVni.inputMethod = InputMethod::Vni;
-    [session activate:client(c) settings:terminalVni
-        applicationID:@"com.ketsuite.ketplus.terminal"];
+    [session activate:client(c) settings:terminalVni];
     type(session, c, @"tie6ng1 ");
-    equal(c.text, @"tiếng ", "terminal VNI converts before commit");
-    check(c.commits == 2, "terminal VNI does not send raw keys to PTY");
+    equal(c.text, @"tiếng ", "terminal VNI rewrites the word in place");
+    check(c.marked.location == NSNotFound, "terminal VNI word is never marked");
     [session close];
     c = [TestClient new]; [session activate:client(c) settings:Settings{}];
     type(session, c, @"tie"); c.selection = NSMakeRange(0, 0);

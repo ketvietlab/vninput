@@ -10,7 +10,6 @@ using namespace vninput::macos;
     NSString* _markedText;
     NSString* _inlineText;
     NSRange _inlineRange;
-    BOOL _supportsDocumentReplacement;
 }
 - (instancetype)init
 {
@@ -62,8 +61,8 @@ using namespace vninput::macos;
 {
     if (!_client) { _engine->reset(); _markedText = @""; [self clearInline]; return NO; }
     @try {
-        if (_inlineText.length || (_supportsDocumentReplacement &&
-            [_client selectedRange].location != NSNotFound && !_markedText.length))
+        if (_inlineText.length ||
+            ([_client selectedRange].location != NSNotFound && !_markedText.length))
             return [self applyInline:composition];
         const NSRange currentSelection = NSMakeRange(NSNotFound, NSNotFound);
         if (!composition.commit.empty()) {
@@ -92,18 +91,9 @@ using namespace vninput::macos;
 }
 - (void)activate:(id<IMKTextInput>)client settings:(const Settings&)settings
 {
-    [self activate:client settings:settings
-        applicationID:NSWorkspace.sharedWorkspace.frontmostApplication.bundleIdentifier];
-}
-- (void)activate:(id<IMKTextInput>)client settings:(const Settings&)settings
-    applicationID:(NSString*)applicationID
-{
     if (_client == client && client) { [self configure:settings]; return; }
     [self close];
     _client = client;
-    // KetPlus Terminal is a PTY, not an editable document. It accepts IME
-    // preedit/commit but cannot replace already-sent bytes from a prior key.
-    _supportsDocumentReplacement = ![applicationID isEqualToString:@"com.ketsuite.ketplus.terminal"];
     _settings = settings;
     _engine->configure(settings);
     _engine->reset();
