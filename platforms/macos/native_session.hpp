@@ -10,8 +10,6 @@ struct EventOutcome { bool consumed = false; bool toggle = false; };
 @interface VNInputInputSession : NSObject
 @property(nonatomic, readonly) NSString* markedText;
 - (void)activate:(id<IMKTextInput>)client settings:(const vninput::Settings&)settings;
-- (void)activate:(id<IMKTextInput>)client settings:(const vninput::Settings&)settings
-    applicationID:(NSString*)applicationID;
 - (void)configure:(const vninput::Settings&)settings;
 - (vninput::macos::EventOutcome)handleEvent:(NSEvent*)event client:(id<IMKTextInput>)client;
 - (void)commitForClient:(id<IMKTextInput>)client;
